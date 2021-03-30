@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Coupon</title>
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./public/css/style.css">
+</head>
+
+<body>
+
+
+
+    <!-- header -->
+    <img src="./public/images/image-removebg-preview.png" class="logo">
+
+    <h1>Congratulations</h1>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><img src="./public/images/paytm-removebg-preview.png"></h5>
+            <h3>GIFT <span>CARD</span> &#8377 200 </h3>
+        </div>
+    </div>
+
+    
+    <!-- /header -->
+
+
+    <!-- Displaying the page which is required  -->
+    <script>
+        const item = window.localStorage.getItem("phone");
+        console.log(item);
+        if (item===null){
+            document.getElementById('formID').innerHTML=`
+    <form action="./thankyou.html" method="post" onsubmit="handleSubmit()">
+        <p>You have WON Paytm Fift Card OF Rs 200 for <b>placing the order on Man Matters</b></p>
+        <div class="form-group">
+            <input type="number" onkeyup="changeColor(this)" name="phone" class="form-control" id="number" placeholder="Enter Mobile Number">
+        </div>
+        <small>Enter the same number used on Man Matters</small><br>
+        <button id="btn" class="btn btn-default" type="submit">WOW , get my Paytm Gift Card <i
+                class="fas fa-angle-right"></i></button>
+    </form>
+    <p class="powered">Powered By <img src="./public/images/gokwik-removebg-preview.png" alt=""></p>
+    `
+    
+    }
+    else{
+        // moving to thankyou page if the user is already registered
+        window.location.href="D:/projects--/Gowik Assignment/thankyou.html";
+    }
+
+    </script>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        const changeColor=(e)=>{
+
+            const btn=document.getElementById("btn");
+            
+            if (e.value.length===10){
+                btn.style.background="#16c79a";
+                btn.style.color="#fff";
+                // #16c79a
+            }
+            else {
+                btn.style.background="#fff";
+                btn.style.color="#000";
+            }
+
+        }
+
+        // pushing data to local storage for further implementation 
+        const handleSubmit = ()=>{
+            let number = document.getElementById("number").value;
+            console.log(number);
+            window.localStorage.setItem('phone',number);
+
+        }
+    </script>
+</body>
+
+</html>
